@@ -1,0 +1,90 @@
+if game.PlaceId == 13619286798 then
+ 
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "BaconBoss | Pickaxe Mine Simulator", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+    
+    _G.farm = true
+    _G.sfarm = "1"
+    _G.egg = true
+    _G.segg = "Normal Egg"
+    _G.rb = true
+    
+    function farm()
+         while _G.farm == true do  
+         game:GetService("ReplicatedStorage").Events.Remotes.ServerRemotes.PunchBag:InvokeServer(_G.sfarm,1)
+         wait(0.00000000001)
+        end
+    end
+
+    function egg()
+         while _G.egg == true do
+         game:GetService("ReplicatedStorage").Events.Remotes.ServerRemotes.GivePlayerRandomPet:InvokeServer(_G.segg,1)
+         wait(0.0000000000001)
+        end
+    end
+
+    function rb()
+        while _G.rb == true do
+            game:GetService("ReplicatedStorage").Events.Remotes.ServerRemotes.Rebirth:InvokeServer()
+        wait(0.1)
+       end
+   end
+
+    local MainTab = Window:MakeTab({
+        Name = "Main",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+    
+    local EggTab = Window:MakeTab({
+        Name = "Egg",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    MainTab:AddToggle({
+        Name = "Auto Tap",
+        Default = false,
+        Callback = function(Value)
+            _G.farm = Value
+            farm()
+        end    
+    })
+
+    EggTab:AddToggle({
+        Name = "Auto Hatch",
+        Default = false,
+        Callback = function(Value)
+            _G.egg = Value
+            egg()
+        end    
+    })
+    
+    MainTab:AddDropdown({
+        Name = "Select",
+        Default = "1",
+        Options = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"},
+        Callback = function(Value)
+            _G.sfarm = Value
+        end    
+    })
+
+    MainTab:AddToggle({
+        Name = "Auto Rebirth",
+        Default = false,
+        Callback = function(Value)
+            _G.rb = Value
+            rb()
+        end    
+    })
+
+    EggTab:AddDropdown({
+        Name = "Select",
+        Default = "Normal Egg",
+        Options = {"Normal Egg", "Aqua Egg", "Arctic Egg", "Icy Egg", "Sand Egg", "Safari Egg", "Glitchus Egg", "Fire Egg", "Devil Egg"},
+        Callback = function(Value)
+            _G.segg = Value
+        end    
+    })
+    
+end
