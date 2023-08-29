@@ -1,7 +1,7 @@
 if game.PlaceId == 13619286798 then
  
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "BaconBoss | Pickaxe Mine Simulator", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "BaconBoss Hub | Pickaxe Mine Simulator", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
     
     _G.farm = true
     _G.sfarm = "1"
